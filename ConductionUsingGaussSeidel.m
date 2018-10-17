@@ -44,5 +44,27 @@ disp(Coff)
 disp(Bs)
 
 %calling the solution:
-Sol = GaussSeidal(ones(3,1), Coff, Bs, 1000, 0.01);
-disp(Sol) %   answer: 11.4369 18.010420.5155 with Ea: 0.0053 0.0060 0.0020 
+[Sol, Solit, SolEa] = GaussSeidal(ones(3,1), Coff, Bs, 1000, 1, 1);
+disp(Sol)   %   answer for T2, T3, T4 (C): 11.4369 18.0104 20.5155
+disp(Solit) %   iteration number 6
+disp(SolEa) %   Ea: 0.5341 0.5973 0.1951 
+T2 = 11.4369;
+T3 = 18.0104;
+T4 = 20.5155;
+AA = 30;
+
+Q1 = (T1 - T2 ) / (m_A * 0.001 / AA); %Watts
+Q2 = (T2 - T3 ) / (m_B * 0.001 / AA); %Watts
+Q3 = (T3 - T4 ) / (m_C * 0.001 / AA); %Watts
+Q4 = (T4 - T5 ) / (m_D * 0.001 / AA); %Watts
+disp(Q1) 
+disp(Q2) % double checking although they are the same
+disp(Q3)
+disp(Q4)
+
+[Sol, Solit, SolEa] = GaussSeidal(ones(3,1), Coff, Bs, 1000, 1, 1.05);
+disp(Sol)   %   answer for T2, T3, T4 (C): 11.4310 18.0079 20.5171
+disp(Solit) %   iteration number 5
+disp(SolEa) %   Ea: 0.9532 0.9213 0.2620 
+
+
