@@ -4,6 +4,7 @@ function [ X ] = GaussSeidal( XInitial, coefficients, Bs, MaxIterNum, Ea )
 
 Augmented  = [XInitial; XInitial];
 [paramsNum, LiterallyOne] = size(XInitial);
+X = "Ea Error";
 
 for iter = 1 : MaxIterNum
 
