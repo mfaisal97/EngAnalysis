@@ -18,10 +18,10 @@ for iter = 1 : MaxIterNum
     EAcalculated = abs ((Augmented(1:paramsNum) - Augmented( paramsNum + 1 : 2*paramsNum)) ./ Augmented(1:paramsNum));  
     %disp(EAcalculated)
     
-    if (sum(EAcalculated > (ones(paramsNum,1) .* (Ea / 100) )) == 0)
         X = Augmented(1: paramsNum);
         it = iter;
         EA = EAcalculated.*100;
+    if (sum(EAcalculated > (ones(paramsNum,1) .* (Ea / 100) )) == 0)
         break
     end
     
