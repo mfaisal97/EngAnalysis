@@ -67,4 +67,27 @@ disp(Sol)   %   answer for T2, T3, T4 (C): 11.4310 18.0079 20.5171
 disp(Solit) %   iteration number 5
 disp(SolEa) %   Ea: 0.9532 0.9213 0.2620 
 
+firstRelax = 1;
+secondRelax = 1.15;
+Y1 =ones(10,1);
+Y2 =ones(10,1);
+for i = 1:10
+    %disp(i)
+    [Sol, Solit, SolEa] = GaussSeidal(ones(3,1), Coff, Bs, i, 0, firstRelax);
+    S = size(SolEa);
+    Y1(i) = sum (SolEa) / S(1);
+    [Sol, Solit, SolEa] = GaussSeidal(ones(3,1), Coff, Bs, i, 0, secondRelax);
+    S = size(SolEa);
+    Y2(i) = sum(SolEa)/ S(1);
+    
+    %disp (Y1)
+    %disp (Y2)
+end
 
+figure
+plot(1:10, Y1, 1:10, Y2);
+
+%accodring to the sum of the relative error over all paramters for the
+%solution over iteration from one to ten, when we have relaxtion of 1.05,
+%the solution converges faster. Also, the closer you make the relaxtion
+%factor to be near 1.15, the more your solution converges faster.
